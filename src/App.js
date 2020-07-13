@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import api from './services/api';
 
@@ -28,9 +29,7 @@ function App() {
     await api.delete(`repositories/${id}`)
     console.log(id)
 
-    await api.get('repositories').then(response => {
-      setRepositories(response.data);
-    });
+    setRepositories(repositories.filter((repository) => repository.id !== id));
   }
 
   return (
@@ -53,3 +52,4 @@ function App() {
 }
 
 export default App;
+
